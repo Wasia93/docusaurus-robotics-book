@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://wasia93.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/docusaurus-robotics-book/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'Wasia93', // Usually your GitHub org/user name.
+  projectName: 'docusaurus-robotics-book', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -78,7 +78,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/your-org/robotics-book',
+          href: 'https://github.com/Wasia93/docusaurus-robotics-book',
           label: 'GitHub',
           position: 'right',
         },
@@ -109,11 +109,11 @@ const config: Config = {
           items: [
             {
               label: 'GitHub Repository',
-              href: 'https://github.com/your-org/robotics-book',
+              href: 'https://github.com/Wasia93/docusaurus-robotics-book',
             },
             {
               label: 'Discussion Forum',
-              href: 'https://github.com/your-org/robotics-book/discussions',
+              href: 'https://github.com/Wasia93/docusaurus-robotics-book/discussions',
             },
           ],
         },
@@ -126,7 +126,7 @@ const config: Config = {
             },
             {
               label: 'License',
-              href: 'https://github.com/your-org/robotics-book/blob/main/LICENSE',
+              href: 'https://github.com/Wasia93/docusaurus-robotics-book/blob/main/LICENSE',
             },
           ],
         },
