@@ -27,12 +27,47 @@ const config: Config = {
 
   onBrokenLinks: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  // Internationalization configuration
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'ur', 'sd', 'pa', 'ps', 'fr', 'zh'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en-US',
+      },
+      ur: {
+        label: 'Urdu (اردو)',
+        direction: 'rtl',
+        htmlLang: 'ur',
+      },
+      sd: {
+        label: 'Sindhi (سنڌي)',
+        direction: 'rtl',
+        htmlLang: 'sd',
+      },
+      pa: {
+        label: 'Punjabi (ਪੰਜਾਬੀ)',
+        direction: 'ltr',
+        htmlLang: 'pa',
+      },
+      ps: {
+        label: 'Pashto (پښتو)',
+        direction: 'rtl',
+        htmlLang: 'ps',
+      },
+      fr: {
+        label: 'Français',
+        direction: 'ltr',
+        htmlLang: 'fr',
+      },
+      zh: {
+        label: '中文',
+        direction: 'ltr',
+        htmlLang: 'zh-CN',
+      },
+    },
   },
 
   presets: [
@@ -72,6 +107,10 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Course',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
         },
         {
           type: 'search',

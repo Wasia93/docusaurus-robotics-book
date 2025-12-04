@@ -1,0 +1,38 @@
+{
+  "theme.ErrorPageContent.title": {
+    "message": "دا پاڼه کریش شوه.",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.NotFound.title": {
+    "message": "پاڼه ونه موندل شوه",
+    "description": "The title of the 404 page"
+  },
+  "theme.NotFound.p1": {
+    "message": "موږ هغه ومونده چې تاسې یې په لټه کې یاست.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "مهرباني وکړئ د دې سایټ مالک سره اړیکه ونیسئ چې تاسې یې اصلي URL سره وصل کړي او دوی ته ووایاست چې د دوی لینک مات شوی دی.",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "اصلي مینځپانګې ته لاړ شئ",
+    "description": "The skip to content label used for accessibility"
+  },
+  "theme.SearchBar.label": {
+    "message": "لټون وکړئ",
+    "description": "The ARIA label for search button"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "سایډبار راښکته کړئ",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "سایډبار پراخه کړئ",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "په دې پاڼه کې",
+    "description": "The label used by the button on the collapsible TOC component"
+  }
+}

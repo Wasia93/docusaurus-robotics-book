@@ -1,0 +1,38 @@
+{
+  "theme.ErrorPageContent.title": {
+    "message": "هي صفحو ڪرش ٿي ويو.",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.NotFound.title": {
+    "message": "صفحو نه مليو",
+    "description": "The title of the 404 page"
+  },
+  "theme.NotFound.p1": {
+    "message": "اسان اهو نه ڳولي سگهياسين جيڪو توهان ڳولي رهيا آهيو.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "مهرباني ڪري هن سائيٽ جي مالڪ سان رابطو ڪريو جنهن توهان کي اصل URL سان ڳنڍيو ۽ انهن کي ٻڌايو ته انهن جو لنڪ ٽٽل آهي.",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "مرڪزي مواد ڏانهن وڃو",
+    "description": "The skip to content label used for accessibility"
+  },
+  "theme.SearchBar.label": {
+    "message": "ڳوليو",
+    "description": "The ARIA label for search button"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "سائڊبار کي ڇڪيو",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "سائڊبار کي وڌايو",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "هن صفحي تي",
+    "description": "The label used by the button on the collapsible TOC component"
+  }
+}
