@@ -1,0 +1,451 @@
+# Content Schema: Physical AI & Humanoid Robotics Course Book
+# This schema defines the structure and validation rules for book content
+
+## Chapter Frontmatter Schema
+chapter_frontmatter:
+  type: object
+  required:
+    - id
+    - title
+    - description
+  properties:
+    id:
+      type: string
+      pattern: "^[a-z0-9-]+$"
+      description: "Unique chapter identifier (kebab-case)"
+      example: "intro-physical-ai"
+
+    title:
+      type: string
+      minLength: 5
+      maxLength: 100
+      description: "Full chapter title"
+      example: "Introduction to Physical AI"
+
+    sidebar_label:
+      type: string
+      maxLength: 50
+      description: "Short label for sidebar navigation"
+      example: "Physical AI Intro"
+
+    sidebar_position:
+      type: integer
+      minimum: 1
+      description: "Order position within sidebar category"
+      example: 1
+
+    description:
+      type: string
+      minLength: 20
+      maxLength: 300
+      description: "Brief chapter description for SEO and previews"
+      example: "An introduction to the fundamental concepts of Physical AI..."
+
+    keywords:
+      type: array
+      items:
+        type: string
+      minItems: 2
+      maxItems: 10
+      description: "Keywords for search and SEO"
+      example: ["physical ai", "robotics", "embodied intelligence"]
+
+    learning_objectives:
+      type: array
+      items:
+        type: string
+        minLength: 10
+      minItems: 2
+      maxItems: 6
+      description: "What learners will achieve after completing this chapter"
+      example:
+        - "Understand the definition and scope of Physical AI"
+        - "Identify key differences between traditional AI and Physical AI"
+
+    estimated_reading_time:
+      type: string
+      pattern: "^[0-9]+ (minute|minutes|hour|hours)$"
+      description: "Estimated time to complete chapter"
+      example: "30 minutes"
+
+    prerequisites:
+      type: array
+      items:
+        type: string
+      description: "Required prior knowledge or chapters"
+      example:
+        - "Basic programming knowledge (Python)"
+        - "Linear algebra fundamentals"
+
+    difficulty:
+      type: string
+      enum: ["beginner", "intermediate", "advanced"]
+      description: "Chapter difficulty level"
+      example: "beginner"
+
+    author:
+      type: string
+      description: "Chapter author name (optional)"
+      example: "Dr. Jane Smith"
+
+    last_updated:
+      type: string
+      format: date
+      description: "Last content update date (YYYY-MM-DD)"
+      example: "2025-12-02"
+
+## Component Prop Schemas
+
+code_example_props:
+  type: object
+  required:
+    - code
+    - language
+  properties:
+    code:
+      type: string
+      minLength: 1
+      description: "Source code to display"
+
+    language:
+      type: string
+      enum:
+        - python
+        - javascript
+        - typescript
+        - cpp
+        - bash
+        - yaml
+        - matlab
+      description: "Programming language for syntax highlighting"
+
+    title:
+      type: string
+      maxLength: 100
+      description: "Optional title describing the code"
+
+    expectedOutput:
+      type: string
+      description: "Expected output when code is executed"
+
+    setupInstructions:
+      type: string
+      description: "Setup steps required before running code"
+
+    filePath:
+      type: string
+      pattern: "^[a-zA-Z0-9_/.-]+$"
+      description: "File path if code represents complete file"
+      example: "src/robot_controller.py"
+
+    highlightLines:
+      type: string
+      pattern: "^[0-9,\\-]+$"
+      description: "Line numbers to highlight (e.g., '3-5,10')"
+      example: "3-5,10"
+
+    isRunnable:
+      type: boolean
+      default: false
+      description: "Whether code is runnable standalone"
+
+interactive_tutorial_props:
+  type: object
+  required:
+    - title
+    - description
+    - difficulty
+    - estimatedTime
+    - steps
+  properties:
+    title:
+      type: string
+      minLength: 5
+      maxLength: 100
+      description: "Tutorial title"
+
+    description:
+      type: string
+      minLength: 20
+      maxLength: 300
+      description: "Brief tutorial description"
+
+    difficulty:
+      type: string
+      enum: ["beginner", "intermediate", "advanced"]
+      description: "Tutorial difficulty level"
+
+    estimatedTime:
+      type: integer
+      minimum: 5
+      maximum: 240
+      description: "Estimated completion time in minutes"
+
+    prerequisites:
+      type: array
+      items:
+        type: string
+      description: "Required prior knowledge"
+
+    steps:
+      type: array
+      minItems: 2
+      maxItems: 20
+      items:
+        type: object
+        required:
+          - id
+          - stepNumber
+          - instruction
+          - expectedOutcome
+        properties:
+          id:
+            type: string
+            pattern: "^step-[0-9]+$"
+            example: "step-1"
+
+          stepNumber:
+            type: integer
+            minimum: 1
+
+          instruction:
+            type: string
+            minLength: 10
+            description: "Step instruction text"
+
+          code:
+            type: string
+            description: "Optional code snippet for step"
+
+          expectedOutcome:
+            type: string
+            minLength: 10
+            description: "Expected result after completing step"
+
+          hints:
+            type: array
+            items:
+              type: string
+              minLength: 10
+            maxItems: 3
+            description: "Optional hints if user struggles"
+
+          language:
+            type: string
+            enum: ["python", "javascript", "typescript", "cpp", "bash"]
+            description: "Programming language if code present"
+
+    learningObjectives:
+      type: array
+      items:
+        type: string
+      maxItems: 5
+      description: "What learners will achieve"
+
+multimedia_embed_props:
+  type: object
+  required:
+    - type
+    - src
+    - alt
+  properties:
+    type:
+      type: string
+      enum: ["image", "video", "diagram"]
+      description: "Type of media"
+
+    src:
+      type: string
+      format: uri
+      description: "URL or file path to media"
+
+    alt:
+      type: string
+      minLength: 10
+      maxLength: 200
+      description: "Alternative text for accessibility (required)"
+
+    caption:
+      type: string
+      maxLength: 300
+      description: "Caption displayed below media"
+
+    width:
+      type: string
+      pattern: "^(auto|[0-9]+(px|%|rem|em))$"
+      description: "Width as CSS value"
+      example: "100%"
+
+    height:
+      type: string
+      pattern: "^(auto|[0-9]+(px|%|rem|em))$"
+      description: "Height as CSS value"
+      example: "400px"
+
+    zoomable:
+      type: boolean
+      default: false
+      description: "Whether media can be clicked to enlarge"
+
+    transcript:
+      type: string
+      description: "For videos: transcript URL or text content"
+
+    inlineSvg:
+      type: boolean
+      default: false
+      description: "For diagrams: whether to inline SVG for CSS styling"
+
+## Sidebar Configuration Schema
+
+sidebar_item:
+  oneOf:
+    - type: string
+      description: "Document ID reference"
+      pattern: "^[a-z0-9/-]+$"
+      example: "part1-foundations/intro-physical-ai"
+
+    - type: object
+      required:
+        - type
+        - label
+        - items
+      properties:
+        type:
+          type: string
+          const: "category"
+
+        label:
+          type: string
+          minLength: 3
+          maxLength: 50
+          description: "Category label displayed in sidebar"
+
+        collapsed:
+          type: boolean
+          default: true
+          description: "Whether category starts collapsed"
+
+        items:
+          type: array
+          minItems: 1
+          items:
+            $ref: "#/sidebar_item"
+          description: "Child items in category"
+
+    - type: object
+      required:
+        - type
+        - label
+        - href
+      properties:
+        type:
+          type: string
+          const: "link"
+
+        label:
+          type: string
+          minLength: 3
+          maxLength: 50
+          description: "Link label"
+
+        href:
+          type: string
+          format: uri
+          description: "External or internal link URL"
+
+sidebar_config:
+  type: object
+  patternProperties:
+    "^[a-zA-Z0-9_]+$":
+      type: array
+      items:
+        $ref: "#/sidebar_item"
+  description: "Sidebar configuration mapping sidebar IDs to item arrays"
+  example:
+    tutorialSidebar:
+      - type: category
+        label: "Part 1: Foundations"
+        collapsed: false
+        items:
+          - "part1-foundations/intro-physical-ai"
+          - "part1-foundations/robotics-fundamentals"
+
+## Docusaurus Configuration Schema
+
+docusaurus_config:
+  type: object
+  required:
+    - title
+    - tagline
+    - url
+    - baseUrl
+  properties:
+    title:
+      type: string
+      minLength: 3
+      maxLength: 100
+      description: "Site title"
+      example: "Physical AI & Humanoid Robotics"
+
+    tagline:
+      type: string
+      maxLength: 200
+      description: "Site tagline/subtitle"
+      example: "A Comprehensive Course in Robotics and AI"
+
+    url:
+      type: string
+      format: uri
+      description: "Production URL"
+      example: "https://robotics-book.example.com"
+
+    baseUrl:
+      type: string
+      pattern: "^/.*/$"
+      description: "Base URL path (must start and end with /)"
+      example: "/"
+
+    onBrokenLinks:
+      type: string
+      enum: ["throw", "warn", "ignore"]
+      default: "throw"
+      description: "How to handle broken links during build"
+
+    favicon:
+      type: string
+      description: "Path to favicon file"
+      example: "img/favicon.ico"
+
+## Validation Rules Summary
+
+validation_rules:
+  content:
+    - All chapter IDs must be unique across the site
+    - All chapter frontmatter must validate against chapter_frontmatter schema
+    - All referenced documents in sidebar must exist
+    - All internal links must point to existing pages
+    - All images must have alt text (accessibility requirement)
+
+  components:
+    - CodeExample with isRunnable=true should have expectedOutput
+    - InteractiveTutorial steps must be numbered sequentially starting from 1
+    - MultimediaEmbed of type video should have transcript for accessibility
+    - All component props must match their respective schemas
+
+  configuration:
+    - Sidebar items must not create circular references
+    - Sidebar category depth should not exceed 3 levels
+    - All navbar/footer links must be valid URLs or document IDs
+
+  performance:
+    - Individual MDX files should be <100KB
+    - Images should be <500KB (optimized)
+    - Total static assets should be <50MB
+    - Main bundle should be <200KB gzipped
+
+  accessibility:
+    - All images/multimedia must have alt text
+    - Color contrast must meet WCAG 2.1 AA (4.5:1 for normal text)
+    - All interactive elements must be keyboard accessible
+    - Videos must have captions or transcripts
