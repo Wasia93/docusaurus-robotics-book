@@ -1,12 +1,17 @@
 import React from 'react';
-import RAGChatbot from '@site/src/components/RAGChatbot';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 // Default implementation, that you can customize
 export default function Root({ children }) {
   return (
     <>
       {children}
-      <RAGChatbot apiUrl={process.env.REACT_APP_CHATBOT_API_URL || 'http://localhost:8000'} />
+      <BrowserOnly fallback={<div />}>
+        {() => {
+          const RAGChatbot = require('@site/src/components/RAGChatbot').default;
+          return <RAGChatbot apiUrl={process.env.REACT_APP_CHATBOT_API_URL || 'http://localhost:8000'} />;
+        }}
+      </BrowserOnly>
     </>
   );
 }

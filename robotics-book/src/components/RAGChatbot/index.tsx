@@ -35,7 +35,9 @@ export default function RAGChatbot({ apiUrl = 'http://localhost:8000' }: Chatbot
   }, []);
 
   useEffect(() => {
-    // Handle text selection
+    // Handle text selection (browser only)
+    if (typeof window === 'undefined') return;
+
     const handleSelection = () => {
       const selection = window.getSelection();
       const text = selection?.toString().trim();
