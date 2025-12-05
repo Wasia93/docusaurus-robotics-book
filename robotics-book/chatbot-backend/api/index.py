@@ -1,15 +1,16 @@
+import os
 import sys
 from pathlib import Path
 
 # Add parent directory to path
-sys.path.insert(0, str(Path(__file__).parent.parent))
+parent_dir = str(Path(__file__).parent.parent)
+sys.path.insert(0, parent_dir)
 
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+# Set working directory for imports
+os.chdir(parent_dir)
+
 from mangum import Mangum
-
-# Import app from main module
 from app.main import app
 
-# Wrap FastAPI app with Mangum for AWS Lambda/Vercel compatibility
-handler = Mangum(app)
+# Wrap FastAPI app with Mangum for serverless
+handler = Mangum(app, lifespan="off")
