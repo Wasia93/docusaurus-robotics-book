@@ -19,8 +19,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize database
-init_db()
+# Initialize database (lazy initialization)
+try:
+    init_db()
+except Exception as e:
+    print(f"Database initialization skipped: {e}")
 
 # Include routers
 app.include_router(chat.router, prefix="/api", tags=["Chat"])
