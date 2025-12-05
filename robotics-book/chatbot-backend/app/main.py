@@ -19,8 +19,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Database initialization moved to admin router to avoid cold start issues
-# init_db() will be called on-demand when needed
+# Initialize database
+init_db()
 
 # Include routers
 app.include_router(chat.router, prefix="/api", tags=["Chat"])
