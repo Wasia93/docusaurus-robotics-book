@@ -2,19 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/test.py",
+      "src": "api/health.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
+      "src": "/api/admin/health",
+      "dest": "api/health.py"
+    },
+    {
       "src": "/(.*)",
-      "dest": "api/test.py"
+      "dest": "api/health.py"
     }
-  ],
-  "functions": {
-    "api/test.py": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }
