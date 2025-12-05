@@ -2,18 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/health.py",
+      "src": "api/ping.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/api/admin/health",
-      "dest": "api/health.py"
-    },
-    {
       "src": "/(.*)",
-      "dest": "api/health.py"
+      "dest": "api/ping.py"
     }
   ]
 }
