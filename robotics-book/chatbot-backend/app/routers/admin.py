@@ -30,7 +30,7 @@ async def index_document(request: IndexRequest, db: Session = Depends(get_db)):
             title=request.title,
             content=request.content,
             chunk_index=0,
-            metadata=request.metadata
+            doc_metadata=request.metadata
         )
         db.add(doc_chunk)
         db.commit()

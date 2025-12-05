@@ -29,7 +29,7 @@ class DocumentChunk(Base):
     title = Column(String)
     content = Column(Text)
     chunk_index = Column(Integer)
-    metadata = Column(JSON)
+    doc_metadata = Column(JSON)
     created_at = Column(DateTime, default=datetime.utcnow)
 
 
