@@ -15,12 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://docusaurus-robotics-book.vercel.app',
+  url: 'https://wasia93.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For Vercel, it is typically '/'.
-  baseUrl: '/',
+  // For GitHub pages deployment, it is often '/<projectName>/'
+  baseUrl: '/docusaurus-robotics-book/',
 
+  // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
+  organizationName: 'Wasia93', // Usually your GitHub org/user name.
+  projectName: 'docusaurus-robotics-book', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
