@@ -4,8 +4,8 @@
   <ShortName>Physical AI &amp; Humanoid Robotics</ShortName>
   <Description>Search Physical AI &amp; Humanoid Robotics</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://docusaurus-robotics-book.vercel.app/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://docusaurus-robotics-book.vercel.app/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://docusaurus-robotics-book.vercel.app/opensearch.xml" />
-  <moz:SearchForm>https://docusaurus-robotics-book.vercel.app/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://wasia93.github.io/docusaurus-robotics-book/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://wasia93.github.io/docusaurus-robotics-book/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://wasia93.github.io/docusaurus-robotics-book/opensearch.xml" />
+  <moz:SearchForm>https://wasia93.github.io/docusaurus-robotics-book/</moz:SearchForm>
 </OpenSearchDescription>
