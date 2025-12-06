@@ -12,7 +12,7 @@ interface ChatbotProps {
   apiUrl?: string;
 }
 
-export default function RAGChatbot({ apiUrl = 'http://localhost:8000' }: ChatbotProps) {
+export default function RAGChatbot({ apiUrl = 'https://docusaurus-robotics-book-production.up.railway.app' }: ChatbotProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
