@@ -20,10 +20,7 @@ const config: Config = {
   // For Vercel, it is typically '/'.
   baseUrl: '/',
 
-  // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Wasia93', // Usually your GitHub org/user name.
-  projectName: 'docusaurus-robotics-book', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
